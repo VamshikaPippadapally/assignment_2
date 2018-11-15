@@ -1,0 +1,14 @@
+promise libraries:-
+---------------------
+
+some of the promise libraries are listed below:
+1) bluebird----It is a fully-featured Promise library for JavaScript. It allows you to "promisify" other Node modules in order to use them asynchronously. 
+2) catiline----Usually designed for handling of web workers but contains a promise implementation. Uses lie underneath.
+3) ES6 promise polyfill--It generally borrows its code from RSVP, and is implemented according to the ECMAScript 6 specification.
+4) jquery---It is a classic library for DOM-manipulation across browsers.
+5) Q----a part of it can be found in the popular AngularJS framework from Google.
+6) MyDeferred---Small Gist style implementation
+7) MyPromise----Small Gist style implementation
+8) Yui---Yahoo’s library for DOM-manipulation across browsers.
+9) kew----It is a lightweight promise framework with an aim of providing a base set of functionality similar to that provided by the Q library.
+

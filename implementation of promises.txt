@@ -1,0 +1,92 @@
+Implementation of promises:-
+---------------------------
+
+let us now implement some of the promises based on the design principles they follow. 
+
+Bluebird is basically a strongest library which is built based on some design principles such as pragmatic that means dealing practically rather than theoretically.
+and also some features such as easy to debug, fully featured without bloat, specification compatibility, zero overhead abstraction.
+Installation:
+----------------
+in Node.js
+npm install bluebird
+Then:
+var Promise = require("bluebird");
+
+Alternatively in ES6
+import * as Promise from 'bluebird';
+
+there are few methods in promise:
+promisify:
+  ->returns a new function which returns a promise instead of using a function.
+  ->used on error-first callback function.
+promisifyall:
+  ->provides a promisified version of all callback functions in a library.
+  ->gives a "someFunctionAsync" function to be used as a promise.   
+Bind:
+  ->creates a promise that is bound to a specific "this"
+All:
+  -> takes an array of promises which it starts executing at the same time.
+Join:
+  -> very similar to Promise.All,but for a set number of promises.
+  ->takes the promises themselves,not an array
+  ->more performant.
+ex:
+
+  var Promise=require('bluebird');
+  var promisereadfile=Promise.promisify(require("fs").readFile);
+  promisereadfile("a.js","utf8")
+  .then(function(fileText){
+  console.log(fileText);
+  }).catch(function(err){
+  console.log("error reading file",err);
+  })
+  });
+
+
+
+
+Q promise library
+------------------
+$q service helps in asynchronous execution of functions by returning a promise from the function call.
+
+The deferred object exposes the Promise instance and its APIs which are to be used for resolving the promise. A new instance of deferred is constructed by calling $q.defer(). It exposes three methods:
+
+resolve: resolves a promise with a value.
+reject: rejects a promise with a reason.
+notify: provides the updates of the status.
+ 
+var deferred = $q.defer();
+// To fulfil a promise,we use .resolve
+deferred.resolve(data);
+// To reject a promise,we  use .reject
+deferred.reject(error);
+
+Ex:		
+						
+var Q = require('q');
+var deferred = Q.defer();
+var promise = deferred.promise;
+promise.then(function (val) {
+   console.log('Got : '+val);
+});
+promise.catch(function(err){
+   console.error("Error : "+err)
+})
+//deferred.resolve('excellent');
+deferred.reject('error occurred');
+
+ES6 promise polyfill:
+---------------------
+						
+Installation:
+------------
+Node.js
+To install:
+
+npm install es6-promise-polyfill
+To use:
+-------
+var Promise = require('es6-promise-polyfill').Promise;
+var promise = new Promise(...);
+
+

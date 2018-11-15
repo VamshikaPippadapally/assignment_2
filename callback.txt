@@ -1,0 +1,24 @@
+-> callback is a way to implement asynchronous nature in node js.
+-> A callback is a function called at the completion of a given task; this prevents any blocking, and allows other code to be run in the meantime.
+-> A JavaScript Callback Function is a function that is passed as a parameter to another JavaScript function, and the callback function is run inside of the function it was passed into.
+-> callbacks helps in making our code non-blocking in nature.
+
+program to illustrate callback:-
+-------------------------------
+let add=function(a,b)
+{
+    return a+b;
+};
+let multiply=function(a,b)
+{
+    return a*b;
+};
+let userdefined=function(a,b)
+{
+    console.log(`here are your two numbers back ${a},${b}`);
+};
+let result=function(num1,num2,callback)
+{
+    return callback(num1,num2);
+};
+console.log(result(2,3,multiply));

@@ -1,0 +1,71 @@
+interface Data{
+    rno:Number,
+    name:String,
+    dept:String
+}
+class Student{
+    table: HTMLTableElement = document.getElementById("main");
+    tbody: HTMLTableElement = document.getElementById("tab");
+    btn:HTMLButtonElement = document.getElementById("add");
+    constructor(){
+        this.btn.addEventListener("click", (e:Event) => this.insert());
+    }
+    create(data:Array<Data>){
+        var thd:string[]=["Roll Number","Name","Department"];
+        var tr = document.createElement('TR');
+        this.tb.appendChild(tr);
+        for (var head of thd) {
+            var th = document.createElement('TH')
+            th.appendChild(document.createTextNode(head));
+            tr.appendChild(th);
+        }
+        for (var pupil of data) {
+            var tr = document.createElement('TR');
+            
+                var td1 = document.createElement('TD');
+                var td2 = document.createElement('TD');
+                var td3 = document.createElement('TD');
+                td1.appendChild(document.createTextNode(pupil.rollno.toString()));
+                td2.appendChild(document.createTextNode(pupil.name.toString()));
+                td3.appendChild(document.createTextNode(pupil.dept.toString()));
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+          
+            this.tbody.appendChild(tr);
+        }
+        this.table.appendChild(this.tb);
+        
+    }
+    
+    insert() {
+        if(((document.getElementById("rollno")).value).length>0 && ((document.getElementById("name")).value).length>0 && ((document.getElementById("dept")).value).length>0){
+            var tr = document.createElement('TR');
+            var td1 = document.createElement('TD');
+            var td2 = document.createElement('TD');
+            var td3 = document.createElement('TD');
+            td1.appendChild(document.createTextNode(((document.getElementById("rollno")).value).toString()));
+            td2.appendChild(document.createTextNode(((document.getElementById("name")).value).toString()));
+            td3.appendChild(document.createTextNode(((document.getElementById("dept")).value).toString()));
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            this.tb.appendChild(tr);
+            this.table.appendChild(this.tb);
+            (document.getElementById("rollno")).value="";
+            (document.getElementById("name")).value="";
+            (document.getElementById("dept")).value="";
+        }
+        else{
+            alert("Enter details");
+        }
+    }
+}
+var students:Data[] =[  {rollno:31,name:"Minnie",dept:"ECE"},
+                        {rollno:35,name:"Micky",dept:"ECE"},
+						{rollno:59,name:"Milly",dept:"CSE"},
+						{rollno:61,name:"Moni",dept:"IT"},
+                        {rollno:27,name:"Mani",dept:"ECE"}, ];
+
+var func = new Student();
+func.create(students);

@@ -1,0 +1,27 @@
+Modules in node.js:
+--------------------
+->Module in Node.js is a simple or complex functionality organized in single or multiple JavaScript files .
+->As every module has its own context,it doesn;t interfere with other modules.
+->each and every module must be placed under different .js files and different folders.
+->this effecient way provides us for reusing the modules in nodejs.
+
+basically modules in nodejs are classified into three types. They are core modules, local modules and thirdparty modules.
+->Core Modules:
+---------------
+here are some of the core modules in node.js:
+http, url, querystring, path, fs, util. 
+In order to use Node.js core or npm modules, you first need to import it using require() function.
+var module=require('mod_name');
+->Node.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+To include the HTTP module, use the require() method:
+var http = require('http');
+
+->Local Modules:
+----------------
+Local modules are modules created locally in your Node.js application.
+These modules include different functionalities of your application in separate files and folders.
+Create a module with name (name) and save it as name.js and export it.
+Var mymodule=require('./name.js');
+
+
+some of the built-in-modules which are available in node.js are assert,buffer,http,https,net,child_process,cluster,crypto,dgram etc.

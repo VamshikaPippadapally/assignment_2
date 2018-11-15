@@ -1,0 +1,36 @@
+callback hell
+--------------
+
+->callback hell is an implementation of nested callback functions i.e a callback function is called within a callback function and so on.
+->it is also called as pyramid of Doom.
+
+program to illustrate callback hell:-
+------------------------------------
+
+function area()
+{
+    setTimeout(function()
+    {
+        console.log('1. list all the parameters');
+        setTimeout(function()
+        {
+            console.log('2. give the values for the parameters');
+            setTimeout(function()
+            {
+                console.log('3. provide the formula');
+                setTimeout(function()
+                {
+                    console.log('4.calculate the area');
+                },2000);
+            },2000);
+         },2000);
+    },2000);
+};
+area();
+
+
+drawbacks:-
+----------
+
+-> it leads to complexity in reading.
+-> will results in stack overflow due to continuous callbacks.
